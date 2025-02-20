@@ -50,6 +50,7 @@
             font-weight: bold; /* Make password display bolder */
             margin: 10px 0; /* Add some margin */
             padding: 10px;
+            text-align: center;
             border: 1px solid #ddd;
             background-color: #f0f0f0; /* Light gray background */
             border-radius: 5px;
@@ -92,12 +93,13 @@
         <label for="avoid-similar">Avoid similar looking characters</label><br><br>
 
         <button id="generate-button" class="button">Generate</button>
-        <button id="regenerate-button" class="button">Regenerate</button>
+        <button id="regenerate-button" class="button">Regenerate</button><br/>
         New Password: <p id="strong-password-display"></p>
         <p id="password-explanation"></p>
         <div id="copy-button-container">
-            <button id="copy-button" class="button">Copy to Clipboard</button>
             <span id="copy-message"></span>
+            <button id="copy-button" class="button">Copy to Clipboard</button>
+            
         </div>
     </div>
 
