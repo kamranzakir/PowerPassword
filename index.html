@@ -26,7 +26,7 @@
     <div id="password-strengthener">
         <h1>Power Password</h1>
         <h2>Strengthen Your Password</h2>
-        <label for="weak-password">Enter a Significant Name:</label>
+        <label for="weak-password">Enter a Significant Name or an existing weak password:</label>
         <input type="text" id="weak-password" name="weak-password"><br>
 
         <label for="significant-number">Enter a Significant Number (optional):</label>
@@ -44,7 +44,7 @@
         <button id="copy-button" class="button">Copy to Clipboard</button><br/>
         New Password: <p id="strong-password-display"></p>
         Status: <p id="copy-message"></p>
-        Why this passowrd: <p id="password-explanation"></p>
+        <p id="password-explanation"></p>
     </div>
 
     <script>
@@ -213,7 +213,7 @@
   strongPassword = strongPassword.slice(0, desiredLength);
   explanation = explanation.slice(0, -2); // Remove trailing comma and space
   if (explanation.length > 0) {
-    explanation = "Explanation: " + explanation;
+    explanation = "What did I change: " + explanation;
   }
 
   return { password: strongPassword, explanation: explanation };
