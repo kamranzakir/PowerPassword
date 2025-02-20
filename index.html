@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strengthener</title>
+    <link rel="stylesheet" href="styles.css"> </head>
+<body>
+    <div id="password-strengthener">
+        <label for="weak-password">Enter a Significant Name:</label>
+        <input type="text" id="weak-password" name="weak-password"><br>
+
+        <label for="significant-number">Enter a Significant Number (optional):</label>
+        <input type="number" id="significant-number" name="significant-number"><br><br>
+
+        <label for="password-length">Select Password Length (12-20):</label>
+        <input type="range" id="password-length" name="password-length" min="12" max="20" value="12">
+        <span id="length-value">12</span> characters<br><br>
+
+        <input type="checkbox" id="avoid-similar" name="avoid-similar">
+        <label for="avoid-similar">Avoid similar looking characters</label><br><br>
+
+        <button id="generate-button" class="button">Generate</button>
+        <button id="regenerate-button" class="button">Regenerate</button>
+        <button id="copy-button" class="button">Copy to Clipboard</button>
+        <p id="strong-password-display"></p>
+        <p id="copy-message"></p>
+        <p id="password-explanation"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
