@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Power Password - Strengthen Your Password</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         #password-strengthener {
             font-family: Arial, sans-serif;
@@ -32,19 +34,6 @@
             box-sizing: border-box; /* Include padding in width */
         }
 
-        .button {
-            margin: 5px;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-
         #strong-password-display {
             font-size: 24px; /* Make password display bigger */
             font-weight: bold; /* Make password display bolder */
@@ -70,9 +59,54 @@
             color: #777; /* Darker gray text */
             border-radius: 3px;
         }
+
+
+        .button {
+            display: inline-flex; /* Use flexbox for icon and text */
+            align-items: center; /* Vertically align icon and text */
+            justify-content: center; /* Horizontally center icon and text */
+            padding: 10px 15px; /* Adjust padding for icon */
+            margin: 5px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .button i {
+            margin-right: 5px; /* Add space between icon and text */
+        }
+        
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+
+        .primary {
+            background-color: #007bff; /* Example primary color */
+            border-color: #007bff;
+        }
+        .primary:hover{
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+        .secondary {
+            background-color: #6c757d; /* Example secondary color */
+            border-color: #6c757d;
+        }
+        .secondary:hover{
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
         #password-explanation{
             margin-top: 10px;
+            white-space: pre-wrap; /* Preserve whitespace and wrap text */
         }
+    </style>
+
+        
     </style>
 </head>
 <body>
@@ -92,14 +126,13 @@
         <input type="checkbox" id="avoid-similar" name="avoid-similar">
         <label for="avoid-similar">Avoid similar looking characters</label><br><br>
 
-        <button id="generate-button" class="button">Generate</button>
-        <button id="regenerate-button" class="button">Regenerate</button><br/>
+        <button id="generate-button" class="button primary"><i class="fas fa-key"></i>Generate</button>
+        <button id="regenerate-button" class="button secondary"><i class="fas fa-sync"></i>Regenerate</button><br/>
         New Password: <p id="strong-password-display"></p>
         <p id="password-explanation"></p>
         <div id="copy-button-container">
             <span id="copy-message"></span>
-            <button id="copy-button" class="button">Copy to Clipboard</button>
-            
+            <button id="copy-button" class="button primary"><i class="fas fa-copy"></i>Copy to Clipboard</button>
         </div>
     </div>
 
@@ -123,8 +156,8 @@
 
             const result = strengthenPassword(significantName, significantNumber, desiredLength, avoidSimilar);
             document.getElementById('strong-password-display').textContent = result.password;
+            document.getElementById('password-explanation').innerHTML = "<b>Your password:</b> " + result.password + "<br>" + result.explanation; // Added the actual password here
             document.getElementById('copy-message').textContent = "";
-            document.getElementById('password-explanation').textContent = result.explanation;
         }
 
         function strengthenPassword(significantName, significantNumber, desiredLength, avoidSimilar) {
