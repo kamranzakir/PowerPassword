@@ -4,11 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Power Password - Strengthen Your Password</title>
-    
     <style>
         #password-strengthener {
             font-family: Arial, sans-serif;
+            width: 500px; /* Set a max width for better layout */
+            margin: 20px auto; /* Center the container */
+            padding: 20px;
+            border: 1px solid #ccc; /* Add a border */
+            border-radius: 5px; /* Round the corners */
         }
+
+        h1, h2 {
+            text-align: center; /* Center the headings */
+        }
+
+        label {
+            display: block; /* Make labels stack on top of inputs */
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="range"] {
+            width: calc(100% - 10px); /* Make inputs take full width */
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
         .button {
             margin: 5px;
             padding: 10px;
@@ -17,8 +40,37 @@
             border: none;
             cursor: pointer;
         }
+
         .button:hover {
             background-color: #45a049;
+        }
+
+        #strong-password-display {
+            font-size: 24px; /* Make password display bigger */
+            font-weight: bold; /* Make password display bolder */
+            margin: 10px 0; /* Add some margin */
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f0f0f0; /* Light gray background */
+            border-radius: 5px;
+            overflow-wrap: break-word; /* prevent password from overflowing*/
+        }
+
+        #copy-button-container { /* Container for copy button and message */
+            margin-top: 20px; /* Add some top margin */
+            text-align: right; /* Align to the right */
+        }
+
+        #copy-message {
+            display: inline-block; /* Allow message to be inline with button */
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #eee; /* Light gray background for message */
+            color: #777; /* Darker gray text */
+            border-radius: 3px;
+        }
+        #password-explanation{
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -42,9 +94,11 @@
         <button id="generate-button" class="button">Generate</button>
         <button id="regenerate-button" class="button">Regenerate</button>
         New Password: <p id="strong-password-display"></p>
-        <p id="copy-message"></p>
         <p id="password-explanation"></p>
-        <button id="copy-button" class="button">Copy to Clipboard</button><br/>
+        <div id="copy-button-container">
+            <button id="copy-button" class="button">Copy to Clipboard</button>
+            <span id="copy-message"></span>
+        </div>
     </div>
 
     <script>
