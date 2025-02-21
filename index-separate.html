@@ -3,29 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Strengthener</title>
-    <link rel="stylesheet" href="styles.css"> </head>
+    <title>Password Strengthener - Strengthen Your Password</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>    
 <body>
-    <div id="password-strengthener">
-        <label for="weak-password">Enter a Significant Name:</label>
-        <input type="text" id="weak-password" name="weak-password"><br>
+     <div id="password-strengthener">
+        <h1>Power Password</h1>
+        <h4>Strengthen Your Password</h4>
+        <label for="weak-password">Enter a word or a weak password:</label>
+        <input type="text" id="weak-password" name="weak-password">
+        <div class="help-text">It can be a name, word or phrase significant to you.</div><br>
 
         <label for="significant-number">Enter a Significant Number (optional):</label>
-        <input type="number" id="significant-number" name="significant-number"><br><br>
+        <input type="number" id="significant-number" name="significant-number">
+        <div class="help-text">A date or number that you will remember.</div><br><br>
 
-        <label for="password-length">Select Password Length (12-20):</label>
+        <label for="password-length">Password Length (12-20): <span id="length-value">12</span> characters</label>
         <input type="range" id="password-length" name="password-length" min="12" max="20" value="12">
-        <span id="length-value">12</span> characters<br><br>
 
-        <input type="checkbox" id="avoid-similar" name="avoid-similar">
-        <label for="avoid-similar">Avoid similar looking characters</label><br><br>
+        <div class="checkbox-container">
+            <input type="checkbox" id="avoid-similar" name="avoid-similar" style="transform: scale(2);">
+            <label for="avoid-similar" style="margin-left: 20px;">Avoid similar looking characters</label>
+        </div><br><br>
 
-        <button id="generate-button" class="button">Generate</button>
-        <button id="regenerate-button" class="button">Regenerate</button>
-        <button id="copy-button" class="button">Copy to Clipboard</button>
-        <p id="strong-password-display"></p>
-        <p id="copy-message"></p>
+        <button id="generate-button" class="button primary"><i class="fas fa-key"></i>Generate</button>
+        <button id="regenerate-button" class="button secondary"><i class="fas fa-sync"></i>Regenerate</button><br/><hr/>
+        <b>Your Strong Password:</b> <p id="strong-password-display"></p>
+        <div id="copy-button-container">
+            <span id="copy-message"></span>
+            <button id="copy-button" class="button primary"><i class="fas fa-copy"></i>Copy to Clipboard</button>
+        </div>
+
         <p id="password-explanation"></p>
+
     </div>
 
     <script src="script.js"></script>
