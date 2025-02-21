@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,108 +9,120 @@
     <style>
         #password-strengthener {
             font-family: Arial, sans-serif;
-            width: 500px; /* Set a max width for better layout */
-            margin: 20px auto; /* Center the container */
+            width: 500px;
+            margin: 20px auto;
             padding: 20px;
-            border: 1px solid #ccc; /* Add a border */
-            border-radius: 10px; /* Round the corners */
+            border: 1px solid #ccc;
+            border-radius: 10px;
         }
 
         h1, h2 {
-            text-align: center; /* Center the headings */
+            text-align: center;
         }
 
         label {
-            display: block; /* Make labels stack on top of inputs */
+            display: block;
             margin-bottom: 5px;
         }
 
         input[type="text"],
-        input[type="number"],
-        input[type="range"] {
-            width: calc(100% - 10px); /* Make inputs take full width */
+        input[type="number"] { /* Only apply to text and number inputs */
+            width: calc(100% - 10px);
             padding: 8px;
             margin-bottom: 15px;
-            box-sizing: border-box; /* Include padding in width */
+            box-sizing: border-box;
+            border-radius: 5px; /* Rounded corners for text fields */
+        }
+
+        input[type="range"] {
+            vertical-align: middle; /* Align slider vertically */
+            margin-left: 10px; /* Add some space between label and slider */
+        }
+
+        .help-text { /* Style for help text */
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
         }
 
         #strong-password-display {
-            font-size: 24px; /* Make password display bigger */
-            font-weight: bold; /* Make password display bolder */
-            margin: 10px 0; /* Add some margin */
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
             padding: 10px;
             text-align: center;
             border: 1px solid #ddd;
-            background-color: #f0f0f0; /* Light gray background */
+            background-color: #f0f0f0;
             border-radius: 5px;
-            overflow-wrap: break-word; /* prevent password from overflowing*/
+            overflow-wrap: break-word;
         }
 
-        #copy-button-container { /* Container for copy button and message */
-            margin-top: 20px; /* Add some top margin */
-            text-align: right; /* Align to the right */
+        #copy-button-container {
+            margin-top: 20px;
+            text-align: right;
         }
 
         #copy-message {
-            display: inline-block; /* Allow message to be inline with button */
+            display: inline-block;
             margin-left: 10px;
             padding: 5px 10px;
-            background-color: #eee; /* Light gray background for message */
-            color: #777; /* Darker gray text */
+            background-color: #eee;
+            color: #777;
             border-radius: 3px;
         }
 
-
         .button {
-            display: inline-flex; /* Use flexbox for icon and text */
-            align-items: center; /* Vertically align icon and text */
-            justify-content: center; /* Horizontally center icon and text */
-            padding: 10px 15px; /* Adjust padding for icon */
-            margin: 5px;
-            padding: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 20px; /* Bigger buttons */
+            margin: 10px auto; /* Centered buttons */
             background-color: #4CAF50;
             color: white;
             border: none;
             cursor: pointer;
+            border-radius: 5px; /* Rounded corners for buttons */
+            width: fit-content; /* Adjust width to content */
+            display: block; /* Make buttons block elements to center */
         }
+
         .button i {
-            margin-right: 5px; /* Add space between icon and text */
+            margin-right: 5px;
         }
-        
 
         .button:hover {
             background-color: #45a049;
         }
 
-
         .primary {
-            background-color: #007bff; /* Example primary color */
+            background-color: #007bff;
             border-color: #007bff;
         }
-        .primary:hover{
+
+        .primary:hover {
             background-color: #0069d9;
             border-color: #0062cc;
         }
 
         .secondary {
-            background-color: #6c757d; /* Example secondary color */
+            background-color: #6c757d;
             border-color: #6c757d;
         }
-        .secondary:hover{
+
+        .secondary:hover {
             background-color: #5a6268;
             border-color: #545b62;
         }
-        #password-explanation{
-            margin-top: 10px;
-            white-space: pre-wrap; /* Preserve whitespace and wrap text */
-        }
-        .checkbox-container {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Vertically align checkbox and label */
-}
-    </style>
 
-        
+        #password-explanation {
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -118,26 +130,29 @@
         <h1>Power Password</h1>
         <h2>Strengthen Your Password</h2>
         <label for="weak-password">Enter a Significant Name or an existing weak password:</label>
-        <input type="text" id="weak-password" name="weak-password"><br>
+        <input type="text" id="weak-password" name="weak-password">
+        <div class="help-text">A name, word or phrase significant to you.</div><br>
 
         <label for="significant-number">Enter a Significant Number (optional):</label>
-        <input type="number" id="significant-number" name="significant-number"><br><br>
+        <input type="number" id="significant-number" name="significant-number">
+        <div class="help-text">A date or number that you will remember.</div><br><br>
 
-        <label for="password-length">Password Length (12-20): </label><span id="length-value">12</span> <b>characters</b><br>
+        <label for="password-length">Password Length (12-20): <span id="length-value">12</span> characters</label>
         <input type="range" id="password-length" name="password-length" min="12" max="20" value="12">
 
-<div class="checkbox-container">  <input type="checkbox" id="avoid-similar" name="avoid-similar" style="transform: scale(2);">
-    <label for="avoid-similar" style="margin-left: 20px;">Avoid similar looking characters</label>
-</div><br><br>
+        <div class="checkbox-container">
+            <input type="checkbox" id="avoid-similar" name="avoid-similar" style="transform: scale(2);">
+            <label for="avoid-similar" style="margin-left: 20px;">Avoid similar looking characters</label>
+        </div><br><br>
 
         <button id="generate-button" class="button primary"><i class="fas fa-key"></i>Generate</button>
         <button id="regenerate-button" class="button secondary"><i class="fas fa-sync"></i>Regenerate</button><br/><hr/>
-        <b></b>Your Strong Password:</b> <p id="strong-password-display"></p>
+        <b>Your Strong Password:</b> <p id="strong-password-display"></p>
         <div id="copy-button-container">
             <span id="copy-message"></span>
             <button id="copy-button" class="button primary"><i class="fas fa-copy"></i>Copy to Clipboard</button>
         </div>
-        
+
         <p id="password-explanation"></p>
 
     </div>
