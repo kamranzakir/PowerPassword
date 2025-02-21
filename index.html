@@ -161,7 +161,7 @@
             const result = strengthenPassword(significantName, significantNumber, desiredLength, avoidSimilar);
             document.getElementById('strong-password-display').textContent = result.password;
 
-            document.getElementById('password-explanation').innerHTML = `<b>Your original input:</b> ${originalName + (originalNumber ? originalNumber : "")}<br><b>Your strengthened password:</b> ${result.password}<br><b>Your randomly created password original characters:</b> ${result.originalCombined || ""}<br>${result.explanation}`; // Added this line
+            document.getElementById('password-explanation').innerHTML = `<b>Your original input:</b> ${originalName + (originalNumber ? originalNumber : "")}<br><b>Your randomly created password original characters:</b> ${result.originalCombined || ""}<br>${result.explanation}`; // Added this line
 
             document.getElementById('copy-message').textContent = "";
         }
@@ -207,8 +207,8 @@
                 'Q': ['Q', 'q', '9'],
                 'r': ['r', 'R'],
                 'R': ['R', 'r'],
-                's': ['s', '5', 'S', '&'],
-'S': ['S', '5', 's', '&'],
+                's': ['s', '5', 'S', '&', '$'],
+                'S': ['S', '5', 's', '&', '$'],
                 't': ['+', '7', 't', 'T'],
                 'T': ['+', '7', 't', 'T'],
                 'u': ['u', 'l_l', 'U'],
@@ -226,8 +226,8 @@
                 '0': ['&', '()', '0', 'O', 'o'],
                 '1': ['!', '|', '1', 'l'],
                 '2': ['@', '2', 'Z', 'z'],
-'3': ['#', '3', '&'],
-'4': ['@', '#', '4'],
+                '3': ['#', '3', '&'],
+                '4': ['@', '#', '4'],
                 '5': ['%', '$', '5'],
                 '6': ['^', '&', '6', 'b'],
                 '7': ['&', '+', '7', 'T'],
