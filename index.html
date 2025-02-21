@@ -13,7 +13,7 @@
             margin: 20px auto; /* Center the container */
             padding: 20px;
             border: 1px solid #ccc; /* Add a border */
-            border-radius: 5px; /* Round the corners */
+            border-radius: 10px; /* Round the corners */
         }
 
         h1, h2 {
@@ -30,7 +30,7 @@
         input[type="range"] {
             width: calc(100% - 10px); /* Make inputs take full width */
             padding: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             box-sizing: border-box; /* Include padding in width */
         }
 
@@ -128,12 +128,14 @@
 
         <button id="generate-button" class="button primary"><i class="fas fa-key"></i>Generate</button>
         <button id="regenerate-button" class="button secondary"><i class="fas fa-sync"></i>Regenerate</button><br/>
-        New Password: <p id="strong-password-display"></p>
-        <p id="password-explanation"></p>
+        <b></b>Your Strong Password:</b> <p id="strong-password-display"></p>
         <div id="copy-button-container">
             <span id="copy-message"></span>
             <button id="copy-button" class="button primary"><i class="fas fa-copy"></i>Copy to Clipboard</button>
         </div>
+        
+        <p id="password-explanation"></p>
+
     </div>
 
     <script>
@@ -161,7 +163,7 @@
             const result = strengthenPassword(significantName, significantNumber, desiredLength, avoidSimilar);
             document.getElementById('strong-password-display').textContent = result.password;
 
-            document.getElementById('password-explanation').innerHTML = `<b>Your original input:</b> ${originalName + (originalNumber ? originalNumber : "")}<br><b>Your randomly created password original characters:</b> ${result.originalCombined || ""}<br>${result.explanation}`; // Added this line
+            document.getElementById('password-explanation').innerHTML = `<b>Your original input:</b> ${originalName + (originalNumber ? originalNumber : "")}<br><b>Randomly created password original characters:</b> ${result.originalCombined || ""}<br>${result.explanation}`; // Added this line
 
             document.getElementById('copy-message').textContent = "";
         }
