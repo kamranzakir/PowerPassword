@@ -155,15 +155,13 @@
             const desiredLength = parseInt(lengthSlider.value);
             const avoidSimilar = document.getElementById('avoid-similar').checked;
 
-            // Store the original input values for display
-            const originalName = significantName;  // Store original name
-            const originalNumber = significantNumber; // Store original number
+            const originalName = significantName;
+            const originalNumber = significantNumber;
 
             const result = strengthenPassword(significantName, significantNumber, desiredLength, avoidSimilar);
             document.getElementById('strong-password-display').textContent = result.password;
 
-            // Display the ORIGINAL input values, not the potentially randomized ones
-            document.getElementById('password-explanation').innerHTML = `<b>Your original input:</b> ${originalName + (originalNumber ? originalNumber : "")}<br><b>Your strengthened password:</b> ${result.password}<br>${result.explanation}`;
+            document.getElementById('password-explanation').innerHTML = `<b>Your original input:</b> ${originalName + (originalNumber ? originalNumber : "")}<br><b>Your strengthened password:</b> ${result.password}<br><b>Your randomly created password original characters:</b> ${result.originalCombined || ""}<br>${result.explanation}`; // Added this line
 
             document.getElementById('copy-message').textContent = "";
         }
@@ -171,7 +169,7 @@
 
 
 
-            function strengthenPassword(significantName, significantNumber, desiredLength, avoidSimilar) {
+          function strengthenPassword(significantName, significantNumber, desiredLength, avoidSimilar) {
             const substitutions = {
                 'a': ['@', '4', '/\\', 'a'],
                 'A': ['@', '4', '/\\', 'A', 'a'],
@@ -276,20 +274,43 @@
 
 
 
-                let combined = significantName + significantNumber; // This will be used in the loop
+            let combined = significantName + significantNumber;
             let strongPassword = "";
             let explanation = "";
+            let originalCombined = ""; // Store the original combined string
 
             if (!significantName) {
                 const defaultNames = [/* ... your default names array ... */];
-                significantName = defaultNames[Math.floor(Math.random() * defaultNames.length)]; // Name might be randomized
+                significantName = defaultNames[Math.floor(Math.random() * defaultNames.length)];
+                combined = significantName + significantNumber; // Update combined after randomization
+                originalCombined = significantName + significantNumber; // Capture the randomized name
             }
 
             if (!significantNumber) {
-                significantNumber = new Date().getFullYear(); // Number might be randomized
+                significantNumber = new Date().getFullYear();
+                combined = significantName + significantNumber; // Update combined after randomization
+                originalCombined = significantName + significantNumber; // Capture the randomized number
             } else {
                 significantNumber = String(significantNumber);
+                originalCombined = significantName + significantNumber; // Capture the user input number
             }
+
+
+            for (let i = 0; i < combined.length; i++) {
+                const char = combined[i];
+                const replacements = substitutions[char];
+                if (replacements) {
+                    const randomIndex = Math.floor(Math.random() * replacements.length);
+                    const replacementChar = replacements[randomIndex];
+                    strongPassword += replacementChar;
+                    explanation += `${char} → ${replacementChar}, `;
+                } else {
+                    strongPassword += char;
+                }
+            }
+
+
+            
 
   const randomChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+=-`~[]\{}|;':\",./<>?";
   let availableChars = randomChars;
