@@ -137,6 +137,22 @@
     </div>
 
     <script>
+    
+
+            const result = strengthenPassword(significantName, significantNumber, desiredLength, avoidSimilar);
+            document.getElementById('strong-password-display').textContent = result.password;
+
+            // Display the original combined string before conversion
+            const originalCombined = significantName + significantNumber;
+            document.getElementById('password-explanation').innerHTML = `<b>Your original input:</b> ${originalCombined}<br><b>Your strengthened password:</b> ${result.password}<br>${result.explanation}`;
+
+            document.getElementById('copy-message').textContent = "";
+        }
+
+        function strengthenPassword(significantName, significantNumber, desiredLength, avoidSimilar) {
+           
+        
+        
         document.getElementById('generate-button').addEventListener('click', generateStrongPassword);
         document.getElementById('regenerate-button').addEventListener('click', generateStrongPassword);
         document.getElementById('copy-button').addEventListener('click', copyToClipboard);
