@@ -1,16 +1,120 @@
-#password-strengthener {
-    font-family: Arial, sans-serif;
-}
 
-.button {
-    margin: 5px;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
+        #password-strengthener {
+            font-family: Arial, sans-serif;
+            width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
 
-.button:hover {
-    background-color: #45a049;
-}
+        h1, h2, h3, h4 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] { /* Only apply to text and number inputs */
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+            border-radius: 5px; /* Rounded corners for text fields */
+        }
+
+        input[type="range"] {
+            vertical-align: middle; /* Align slider vertically */
+            margin-left: 10px; /* Add some space between label and slider */
+        }
+
+        .help-text { /* Style for help text */
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        #strong-password-display {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow-wrap: break-word;
+        }
+
+        #copy-button-container {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        #copy-message {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #eee;
+            color: #777;
+            border-radius: 3px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 20px; /* Bigger buttons */
+            margin: 10px auto; /* Centered buttons */
+            background-color: #4CAF50;
+            color: white;
+            font-size: large;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners for buttons */
+            width: fit-content; /* Adjust width to content */
+            display: block; /* Make buttons block elements to center */
+        }
+
+        .button i {
+            margin-right: 5px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+        .secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+        #password-explanation {
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+    
