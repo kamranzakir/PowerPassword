@@ -328,7 +328,7 @@
     const randomIndex = Math.floor(Math.random() * availableChars.length);
     const randomChar = availableChars[randomIndex];
     strongPassword += randomChar;
-    explanation += `Added random character ${randomChar}, `;
+    explanation += `Added ${randomChar}, `;
   }
 
   strongPassword = strongPassword.slice(0, desiredLength);
